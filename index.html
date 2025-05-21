@@ -1,0 +1,1147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MotionCanvas: Cinematic Shot Design with Controllable Image-to-Video Generation</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet">
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+<link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+<link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="./static/css/index.css">
+<!-- <link rel="icon" href=".../icons8-canvas-external-xnimrodx-lineal-color-xnimrodx-96.png"> -->
+<link rel="icon" href="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/64/external-canvas-art-and-design-studio-xnimrodx-lineal-color-xnimrodx.png">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>
+
+
+  <!-- MathJax library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSQGH8Q0WV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TSQGH8Q0WV');
+  </script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+
+</head>
+
+<body>
+	<button style="position: fixed; right: 15px; top: 50%; height: 100px; width: 140px; font-size: 20px;" type="button">
+    <a href="#top">Back to top</a>
+  </button> 
+  <div class="page-container">
+    <section class="hero" style="padding: 0;">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">GeoVideo: Introducing Geometric Regularization into Video Generation Model</h1>
+            <div class="is-size-4 publication-authors" style="margin-top: 10px; margin-bottom: 10px;">
+              <strong>Anonymous Submission</strong> 
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Anonymous Authors</span>
+            </div>
+
+            <div class="publication-links">
+            
+              <span class="link-block">
+                <a href="#static_scene_t2v"
+                    class="external-link button is-normal is-rounded">
+                  <span>Static Scene (T2V)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#static_scene_i2v"
+                    class="external-link button is-normal is-rounded">
+                  <span>Static Scene (I2V)</span>
+                </a>
+              </span>              
+            
+
+
+              </div>
+                <div class="publication-links">
+                  <span class="link-block">
+                    <a href="#dynamic_video_t2v"
+                       class="external-link button is-normal is-rounded">
+                      <span>Dynamic Video (T2V)</span>
+                    </a>
+                  </span>
+                <span class="link-block">
+                  <a href="#dynamic_video_i2v"
+                     class="external-link button is-normal is-rounded">
+                    <span>Dynamic Video (I2V)</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#ablation_study"
+                     class="external-link button is-normal is-rounded">
+                    <span>Ablation study</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#Reconstruction_Results"
+                     class="external-link button is-normal is-rounded">
+                    <span>Reconstruction Results</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="#legend"
+                     class="external-link button is-normal is-rounded">
+                    <span>Legend</span>
+                  </a>
+                </span>        
+              </div>
+            </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- <p align="center">&nbsp;</p> -->
+	<a href="#top"></a>
+  <!-- <ul>
+    <li><a href="#teaser">Teaser video</a></li>
+	  <li><a href="#static_scene_t2v">Comparison & showcases for cinematic shot design</a></li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#applications_container">Additional Applications</a></li>
+    <li><a href="#sparse_container">Comparisons with Baseline Methods</a></li>
+    <li><a href="#ablation_study">Ablation study</a></li>
+    <li><a href="#additional_analysis">Additional Analysis</a></li>
+  </ul> -->
+
+  <!------------------ BEGIN SECTION ------------------>
+  <!-- <p>&nbsp;</p> -->   
+  <h2 style="margin-top: 0em;" id="abstract" align="center"><a name="image-results" id="image-results"></a>Abstract</h2>
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-3">Abstract</h2> -->
+          <div class="content has-text-justified">
+            <p>
+              Recent advances in video generation have enabled the synthesis of high-quality and visually realistic clips using diffusion transformer models. However, most existing approaches operate purely in the 2D pixel space and lack explicit mechanisms for modeling 3D structures, often resulting in temporally inconsistent geometries, implausible motions, and structural artifacts. In this work, we introduce geometric regularization losses into video generation by augmenting latent diffusion models with per-frame depth prediction. We adopted depth as the geometric representation because of the great progress in depth prediction and its compatibility with image-based latent encoders. Specifically, to enforce structural consistency over time, we propose a multi-view geometric loss that aligns the predicted depth maps across frames within a shared 3D coordinate system. Our method bridges the gap between appearance generation and 3D structure modeling, leading to improved spatio-temporal coherence, shape consistency, and physical plausibility. Experiments across multiple datasets show that our approach produces significantly more stable and geometrically consistent results than existing baselines.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+
+
+  <!------------------ BEGIN SECTION ------------------>
+  <p>&nbsp;</p>
+  <hr>
+  <h2 style="margin-top: 0em;" id="static_scene_t2v" align="left"><a name="image-results" id="image-results"></a>Static Scene (T2V)</h2>
+  
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+      <!-- 第一行：标题 -->
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+        <th style="font-size: 16px">Background motion</th> <!-- 你自定义标题 -->
+      </tr>
+  
+      <!-- 第二行：说明文字或图片 -->
+      <tr>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/global.png" alt="" width="240"/></th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/global.png" alt="" width="240"/></th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/local.png" alt="" width="240"/></th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/local.png" alt="" width="240"/></th>
+      </tr>
+  
+      <tr>
+        <th style="font-size: 16px">CogVideoX</th>
+        <th style="font-size: 16px">CogVideoX-Tuned</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+        <th style="font-size: 16px">Depth (Ours)</th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
+
+  
+
+
+
+
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+  
+      <tr>
+        <th style="font-size: 16px">CogVideoX</th>
+        <th style="font-size: 16px">CogVideoX-Tuned</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+        <th style="font-size: 16px">Depth (Ours)</th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+  
+      <tr>
+        <th style="font-size: 16px">LucidDreamer</th>
+        <th style="font-size: 16px">Director3D</th>
+        <th style="font-size: 16px">SplatFlow</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
+
+
+    <!------------------ BEGIN SECTION ------------------>
+    <p>&nbsp;</p>
+    <hr>
+    <h2 style="margin-top: 0em;" id="static_scene_i2v" align="left"><a name="image-results" id="image-results"></a>Static Scene (I2V)</h2>
+    
+    
+    <p align="left">
+      Input Prompt.
+    </p>
+
+    <table width="1024" align="center">
+      <tbody>
+    
+        <tr>
+          <th colspan="4" style="font-size: 18px; text-align: center; padding-bottom: 0.5em;">
+            Input Image
+          </th>
+        </tr>
+        <tr>
+          <td colspan="4" style="text-align: center;">
+            <img src="./03comparison/01_shot_design/1737320888/global.png" alt="Input" style="width: 300px;" />
+          </td>
+        </tr>
+    
+    
+        <tr>
+          <th style="font-size: 16px">CogVideoX</th>
+          <th style="font-size: 16px">CogVideoX-Tuned</th>
+          <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+          <th style="font-size: 16px">Depth (Ours)</th>
+        </tr>
+    
+        <tr>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        </tr>
+    
+        <tr> <td colspan="4"><br /></td> </tr>
+      </tbody>
+    </table>
+    
+
+
+
+    <p>&nbsp;</p>
+    <hr>
+    <h2 style="margin-top: 0em;" id="dynamic_video_t2v" align="left"><a name="image-results" id="image-results"></a>Dynamic Video (T2V)</h2>
+    <p align="left">
+      Shot Design with Joint Camera and Object Control.
+    </p>
+
+    <p align="left">
+      input prompt.
+    </p>
+  
+    <table width="1024" align="center">
+      <tbody>
+    
+        <tr>
+          <th style="font-size: 16px">CogVideoX</th>
+          <th style="font-size: 16px">CogVideoX-Tuned</th>
+          <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+          <th style="font-size: 16px">Depth (Ours)</th>
+        </tr>
+    
+  
+        <tr>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        </tr>
+  
+        <tr> <td colspan="4"><br /></td> </tr>
+      </tbody>
+    </table>
+
+    <p>&nbsp;</p>
+    <hr>
+    <h2 style="margin-top: 0em;" id="dynamic_video_i2v" align="left"><a name="image-results" id="image-results"></a>Dynamic Video (I2V)</h2>
+    <p align="left">
+      Shot Design with Joint Camera and Object Control.
+    </p>
+
+
+
+    <p>&nbsp;</p>
+    <hr>
+    <h2 style="margin-top: 0em;" id="ablation_study" align="left"><a name="image-results" id="image-results"></a>Ablation Study</h2>
+    <p align="left">
+      w/o L<sub>geo</sub>.
+    </p>
+
+    <p align="left">
+      w/o MP.
+    </p>
+
+
+    <p>&nbsp;</p>
+    <hr>
+    <h2 style="margin-top: 0em;" id="Reconstruction_Results" align="left"><a name="image-results" id="image-results"></a>Reconstruction Results</h2>
+
+
+    <h2 class="title is-4" style="font-weight: 700;">Reconstruction Results</h2>
+    <div class="content has-text-centered">
+      <p>
+        Reconstruction of In-the-wild Photos/Videos with VGGT. Click on any thumbnail below to view the 3D reconstruction.
+      </p>
+    </div>
+    <div class="model-viewer-container">
+      <model-viewer id="QualitativeResult"
+                    src="resources/qualitative/colosseum_v4.glb"
+                    alt="3D Model"
+                    loading="eager"
+                    touch-action="pan-y" environment-image="legacy"
+                    camera-orbit="180deg 70deg auto" 
+                    zoom-sensitivity="0.2" camera-controls disable-tap min-camera-orbit="auto auto 1m"
+                    max-camera-orbit="auto auto 10m" interaction-prompt="none" shadow-intensity="0" ar
+                    disable-shadow ar-modes="webxr scene-viewer quick-look"
+                    style="width: 90%; height: 90%; background: #ffffff; margin: 0 auto;">
+      </model-viewer>
+    </div>
+    <br>
+    <div class="content has-text-centered">
+      <div class="thumbnail-container" id="thumbnail-qualitative">
+        <!-- <img src="resources/qualitative/college.png" data-glb="resources/qualitative/college_v2.glb"> -->
+        <!-- <video src="resources/qualitative/pyramid.mp4" data-glb="resources/qualitative/pyramid.glb" loop playsinline muted></video> -->
+        <video src="resources/qualitative/colosseum.mp4" data-glb="resources/qualitative/colosseum_v4.glb" loop playsinline muted></video>
+        <video src="resources/qualitative/outdoor_room.mp4" data-glb="resources/qualitative/outdoor_room_v2.glb" loop playsinline muted></video>
+        <video src="resources/qualitative/courtroom.mp4" data-glb="resources/qualitative/courtroom_v2.glb" loop playsinline muted></video>
+        <img src="resources/qualitative/chess.jpg" data-glb="resources/qualitative/chess_v2.glb">
+        <img src="resources/qualitative/indoor.jpg" data-glb="resources/qualitative/indoor_v2.glb">
+      </div>  
+    </div>  
+    <style>
+      .thumbnail-container img, .thumbnail-container video {
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+        cursor: pointer;
+      }
+      .thumbnail-selected {
+        transform: scale(1.2);
+        border: 6px solid #79b4f2 !important; 
+        box-shadow: 0 0 10px rgba(121, 180, 242, 0.5);
+        z-index: 10;
+        position: relative;
+      }
+      
+      /* New styles for responsive horizontal gallery */
+      .thumbnail-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        scrollbar-width: thin;
+        align-items: center;
+      }
+      
+      .thumbnail-container img, 
+      .thumbnail-container video {
+        flex: 0 0 auto;
+        width: auto;
+        height: 120px; /* Consistent height */
+        object-fit: cover;
+        max-width: none;
+      }
+      
+      /* Custom scrollbar styling */
+      .thumbnail-container::-webkit-scrollbar {
+        height: 6px;
+      }
+      
+      .thumbnail-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      
+      .thumbnail-container::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+      
+      .thumbnail-container::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      
+      /* Adjust for smaller screens */
+      @media (max-width: 768px) {
+        .thumbnail-container img,
+        .thumbnail-container video {
+          height: 100px;
+        }
+      }
+    </style>
+    <script>
+      // The problem is here - you're trying to select an element that doesn't exist
+      // document.querySelector('#thumbnail-qualitative img[src="resources/qualitative/college.png"]').classList.add('thumbnail-selected');
+      
+      // Instead, select the first element that actually exists in your thumbnail container
+      document.addEventListener('DOMContentLoaded', function() {
+        // Select the first element in the thumbnail container (video or image)
+        const firstThumbnail = document.querySelector('#thumbnail-qualitative video, #thumbnail-qualitative img');
+        if (firstThumbnail) {
+          firstThumbnail.classList.add('thumbnail-selected');
+          // If it's a video, play it
+          if (firstThumbnail.tagName.toLowerCase() === 'video') {
+            firstThumbnail.play();
+          }
+        }
+        
+        document.querySelectorAll('#thumbnail-qualitative img, #thumbnail-qualitative video').forEach(el => {
+          // Rest of your click handler code remains the same
+          el.addEventListener('click', () => {
+            const glbSrc = el.getAttribute('data-glb');
+            const modelViewer = document.getElementById('QualitativeResult');
+            modelViewer.setAttribute('src', glbSrc);
+            modelViewer.cameraOrbit = "180deg 70deg auto";
+            modelViewer.resetTurntableRotation(0);
+            modelViewer.jumpCameraToGoal();
+
+            // Remove selection class from all elements
+            document.querySelectorAll('#thumbnail-qualitative img, #thumbnail-qualitative video').forEach(element => {
+                element.classList.remove('thumbnail-selected');
+            });
+            
+            // Add selection class to clicked element
+            el.classList.add('thumbnail-selected');
+            
+            // Play video if it's a video element
+            if (el.tagName.toLowerCase() === 'video') {
+                el.play();
+            }
+            
+            // Pause all other videos
+            document.querySelectorAll('#thumbnail-qualitative video').forEach(video => {
+                if (video !== el) {
+                    video.pause();
+                    video.currentTime = 0;
+                }
+            });
+          });
+        });
+      });
+    </script>
+
+    <br>
+
+    
+
+  <!-- <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Static ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737337164/global.png" alt=""/></th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737337164/local.png" alt=""/></th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737337164/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737337164/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737337164/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Roll clockwise ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737338711/global.png" alt=""/></th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737338711/local.png" alt=""/></th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737338711/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737338711/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737338711/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Tilting up ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737323373/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737323373/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737323373/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737323373/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Dolly in ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737323670/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737323670/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737323670/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737323670/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Trucking right + Pedestal up ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737324417/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737324417/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737324417/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737324417/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Orbit right ]
+          </div>
+        </th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737326441/local.png" alt=""/></th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737326441/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737326441/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737326441/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Panning left + Tilting up ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737327526/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737327526/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737327526/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737327526/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Dolly in ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737328372/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737328372/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737328372/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737328372/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Pedestal down + Tiliting up ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737330538/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737330538/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737330538/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737330538/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Panning left + Dolly in ]
+          </div>
+        </th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737336050/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737336050/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737336050/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+
+
+
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Panning left ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737339967/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737339967/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737339967/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737339967/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Trucking right ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737341790/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737341790/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737341790/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737341790/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Static ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737342202/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737342202/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737342202/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737342202/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Trucking left + Dolly out ]
+          </div>
+        </th>
+        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737342615/global.png" alt=""/></th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737342615/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737342615/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737342615/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table>
+  <hr class="divider" />
+  <table  width="1024" align="center">
+    <tbody>
+      <tr>
+        <th style="font-size: 16px">Camera motion</th>
+        <th style="font-size: 16px">Object global motion</th>
+        <th style="font-size: 16px">Object local motion</th>
+      </tr>
+      <tr>
+        <th>
+          <div class="centered-symbol">
+            [ Panning left + Pedestal up + Orbit right ]
+          </div>
+        </th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+        <th>
+          <div class="centered-symbol">
+            <span class="symbol">⌀</span>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th style="font-size: 16px">DragAnything</th>
+        <th style="font-size: 16px">MOFA-Video</th>
+        <th style="font-size: 16px"><b>MotionCanvas (Ours)</b></th>
+      </tr>
+      <tr>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737343375/DragAnything.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737343375/MOFAVideo.mp4" autoplay loop controls muted/></th>
+        <th><video  class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737343375/Ours_28f_16fps.mp4" autoplay loop controls muted/></th>
+      </tr>
+        <tr> <td><br /></td> </tr> 
+    </tbody>
+  </table> -->
+
+
+
+  <!------------------ BEGIN SECTION ------------------>
+ 
+
+
+
+<script src="./static/js/comparison.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set initial camera positions for all model viewers
+    const initialModelViewers = [
+      document.getElementById('QualitativeResult'),
+      document.getElementById('modelViewerComparison1'),
+      document.getElementById('modelViewerComparison2'),
+      document.getElementById('modelViewerComparison3')
+    ];
+    
+    // Apply consistent initial camera settings to all model viewers
+    initialModelViewers.forEach(viewer => {
+      if (viewer) {
+        viewer.addEventListener('load', () => {
+          viewer.cameraOrbit = "180deg 70deg auto";
+          if (viewer.resetTurntableRotation) {
+            viewer.resetTurntableRotation(0);
+          }
+          viewer.jumpCameraToGoal();
+        });
+      }
+    });
+    
+    // Handle comparison thumbnails
+    const firstComparisonThumbnail = document.querySelector('#thumbnail-comparison video, #thumbnail-comparison img');
+    if (firstComparisonThumbnail) {
+      firstComparisonThumbnail.classList.add('thumbnail-selected');
+      // If it's a video, play it
+      if (firstComparisonThumbnail.tagName.toLowerCase() === 'video') {
+        firstComparisonThumbnail.play();
+      }
+    }
+    
+    document.querySelectorAll('#thumbnail-comparison img, #thumbnail-comparison video').forEach(el => {
+      el.addEventListener('click', () => {
+        const name = el.getAttribute('name');
+        
+        // Update model viewers with the corresponding GLB files
+        const modelViewer1 = document.getElementById('modelViewerComparison1');
+        const modelViewer2 = document.getElementById('modelViewerComparison2');
+        const modelViewer3 = document.getElementById('modelViewerComparison3');
+        
+        modelViewer1.setAttribute('src', `resources/comparison/ours/${name}.glb`);
+        modelViewer2.setAttribute('src', `resources/comparison/dust3r/${name}.glb`);
+        
+        // For the third viewer, check the dropdown selection
+        const baseline = document.getElementById('comparisonBaselineSelection').value;
+        modelViewer3.setAttribute('src', `resources/comparison/${baseline}/${name}.glb`);
+        
+        // Reset camera positions
+        [modelViewer1, modelViewer2, modelViewer3].forEach(viewer => {
+          viewer.cameraOrbit = "180deg 70deg auto";
+          if (viewer.resetTurntableRotation) {
+            viewer.resetTurntableRotation(0);
+          }
+          viewer.jumpCameraToGoal();
+        });
+
+        // Remove selection class from all elements
+        document.querySelectorAll('#thumbnail-comparison img, #thumbnail-comparison video').forEach(element => {
+          element.classList.remove('thumbnail-selected');
+        });
+        
+        // Add selection class to clicked element
+        el.classList.add('thumbnail-selected');
+        
+        // Play video if it's a video element
+        if (el.tagName.toLowerCase() === 'video') {
+          el.play();
+        }
+        
+        // Pause all other videos
+        document.querySelectorAll('#thumbnail-comparison video').forEach(video => {
+          if (video !== el) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        });
+      });
+    });
+    
+    // Handle dropdown change for the third comparison model
+    document.getElementById('comparisonBaselineSelection').addEventListener('change', function() {
+      const selectedName = document.querySelector('#thumbnail-comparison .thumbnail-selected').getAttribute('name');
+      const baseline = this.value;
+      document.getElementById('modelViewerComparison3').setAttribute('src', `resources/comparison/${baseline}/${selectedName}.glb`);
+    });
+  });
+</script>
+
+</body>
+</html>
