@@ -73,14 +73,9 @@
               <span class="author-block">Anonymous Authors</span>
             </div>
 
-            <div class="publication-links">
+            <!-- <div class="publication-links">
             
-              <span class="link-block">
-                <a href="#static_scene_t2v"
-                    class="external-link button is-normal is-rounded">
-                  <span>Static Scene (T2V)</span>
-                </a>
-              </span>
+
               <span class="link-block">
                 <a href="#static_scene_i2v"
                     class="external-link button is-normal is-rounded">
@@ -90,8 +85,14 @@
             
 
 
-              </div>
+              </div> -->
                 <div class="publication-links">
+                  <span class="link-block">
+                    <a href="#static_scene_t2v"
+                        class="external-link button is-normal is-rounded">
+                      <span>Static Scene (T2V)</span>
+                    </a>
+                  </span>
                   <span class="link-block">
                     <a href="#dynamic_video_t2v"
                        class="external-link button is-normal is-rounded">
@@ -158,21 +159,6 @@
 
   <table width="1024" align="center">
     <tbody>
-      <!-- 第一行：标题 -->
-      <tr>
-        <th style="font-size: 16px">Camera motion</th>
-        <th style="font-size: 16px">Object global motion</th>
-        <th style="font-size: 16px">Object local motion</th>
-        <th style="font-size: 16px">Background motion</th> <!-- 你自定义标题 -->
-      </tr>
-  
-      <!-- 第二行：说明文字或图片 -->
-      <tr>
-        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/global.png" alt="" width="240"/></th>
-        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/global.png" alt="" width="240"/></th>
-        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/local.png" alt="" width="240"/></th>
-        <th><img class="input_image_frameinterp" src="./03comparison/01_shot_design/1737320888/local.png" alt="" width="240"/></th>
-      </tr>
   
       <tr>
         <th style="font-size: 16px">CogVideoX</th>
@@ -183,10 +169,10 @@
   
 
       <tr>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00003cogvideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00003tuned.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00003.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00003_depth.mp4" autoplay loop controls muted width="240"></video></th>
       </tr>
 
       <tr> <td colspan="4"><br /></td> </tr>
@@ -194,6 +180,34 @@
   </table>
 
   
+
+
+
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+  
+      <tr>
+        <th style="font-size: 16px">CogVideoX</th>
+        <th style="font-size: 16px">CogVideoX-Tuned</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+        <th style="font-size: 16px">Depth (Ours)</th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00277cogvideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00277tuned.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00277.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00277_depth.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
 
 
 
@@ -214,10 +228,93 @@
   
 
       <tr>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00297cogvideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00297tuned.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00297.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00297_depth.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
+
+
+  
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+  
+      <tr>
+        <th style="font-size: 16px">CogVideoX</th>
+        <th style="font-size: 16px">CogVideoX-Tuned</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+        <th style="font-size: 16px">Depth (Ours)</th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00299cogvideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00299tuned.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00299.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00299_depth.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
+
+
+
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+  
+      <tr>
+        <th style="font-size: 16px">CogVideoX</th>
+        <th style="font-size: 16px">CogVideoX-Tuned</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+        <th style="font-size: 16px">Depth (Ours)</th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00302cogvideo.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00302tuned.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00302.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00302_depth.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
+
+
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+  
+      <tr>
+        <th style="font-size: 16px">LucidDreamer</th>
+        <th style="font-size: 16px">Director3D</th>
+        <th style="font-size: 16px">SplatFlow</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00053Lucid.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00053Director.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00053SplatFlow.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00053.mp4" autoplay loop controls muted width="240"></video></th>
       </tr>
 
       <tr> <td colspan="4"><br /></td> </tr>
@@ -243,10 +340,10 @@
   
 
       <tr>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
-        <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00105Lucid.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00105Director.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00105SplatFlow.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00105.mp4" autoplay loop controls muted width="240"></video></th>
       </tr>
 
       <tr> <td colspan="4"><br /></td> </tr>
@@ -254,7 +351,38 @@
   </table>
 
 
-    <!------------------ BEGIN SECTION ------------------>
+
+
+  <p align="left">
+    input prompt.
+  </p>
+
+  <table width="1024" align="center">
+    <tbody>
+  
+      <tr>
+        <th style="font-size: 16px">LucidDreamer</th>
+        <th style="font-size: 16px">Director3D</th>
+        <th style="font-size: 16px">SplatFlow</th>
+        <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+      </tr>
+  
+
+      <tr>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00134Lucid.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00134Director.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00134SplatFlow.mp4" autoplay loop controls muted width="240"></video></th>
+        <th><video class="video-player-showcase-compare" src="./resources/qualitative/00134.mp4" autoplay loop controls muted width="240"></video></th>
+      </tr>
+
+      <tr> <td colspan="4"><br /></td> </tr>
+    </tbody>
+  </table>
+  
+  
+
+
+    <!-- ---------------- BEGIN SECTION ----------------
     <p>&nbsp;</p>
     <hr>
     <h2 style="margin-top: 0em;" id="static_scene_i2v" align="left"><a name="image-results" id="image-results"></a>Static Scene (I2V)</h2>
@@ -295,7 +423,7 @@
     
         <tr> <td colspan="4"><br /></td> </tr>
       </tbody>
-    </table>
+    </table> -->
     
 
 
@@ -337,10 +465,41 @@
     <hr>
     <h2 style="margin-top: 0em;" id="dynamic_video_i2v" align="left"><a name="image-results" id="image-results"></a>Dynamic Video (I2V)</h2>
     <p align="left">
-      Shot Design with Joint Camera and Object Control.
+      Input Prompt.
     </p>
 
-
+    <table width="1024" align="center">
+      <tbody>
+    
+        <tr>
+          <th colspan="4" style="font-size: 18px; text-align: center; padding-bottom: 0.5em;">
+            Input Image
+          </th>
+        </tr>
+        <tr>
+          <td colspan="4" style="text-align: center;">
+            <img src="./03comparison/01_shot_design/1737320888/global.png" alt="Input" style="width: 300px;" />
+          </td>
+        </tr>
+    
+    
+        <tr>
+          <th style="font-size: 16px">CogVideoX</th>
+          <th style="font-size: 16px">CogVideoX-Tuned</th>
+          <th style="font-size: 16px"><b>GeoVideo (Ours)</b></th>
+          <th style="font-size: 16px">Depth (Ours)</th>
+        </tr>
+    
+        <tr>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/DragAnything.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/MOFAVideo.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+          <th><video class="video-player-showcase-compare" src="./03comparison/01_shot_design/1737320888/Ours_28f_16fps.mp4" autoplay loop controls muted width="240"></video></th>
+        </tr>
+    
+        <tr> <td colspan="4"><br /></td> </tr>
+      </tbody>
+    </table>
 
     <p>&nbsp;</p>
     <hr>
@@ -362,32 +521,41 @@
     <!-- <h2 style="margin-top: 0em;" id="Reconstruction_Results" align="left"></h2> class="title is-4" style="font-weight: 700;">Reconstruction Results</h2> -->
     <div class="content has-text-centered">
       <p>
-        Reconstruction of In-the-wild Photos/Videos with VGGT. Click on any thumbnail below to view the 3D reconstruction.
+        Reconstruction of the generated videos.
       </p>
     </div>
     <div class="model-viewer-container">
-      <model-viewer id="QualitativeResult"
-                    src="resources/qualitative/colosseum_v4.glb"
+
+      <model-viewer id="QualitativeResult" 
+      src="glb/00534/dense/output.glb"
+      camera-controls
+      camera-orbit="0deg 75deg 2.5m"
+      field-of-view="30deg"
+      style="width: 100%; height: 600px; transform: rotateX(180deg) rotateY(180deg);">
+    </model-viewer>
+
+      <!-- <model-viewer id="QualitativeResult"
+                    src="glb/00534/dense/output.glb"
                     alt="3D Model"
                     loading="eager"
-                    touch-action="pan-y" environment-image="legacy"
-                    camera-orbit="180deg 70deg auto" 
-                    zoom-sensitivity="0.2" camera-controls disable-tap min-camera-orbit="auto auto 1m"
-                    max-camera-orbit="auto auto 10m" interaction-prompt="none" shadow-intensity="0" ar
+
+                    camera-orbit="-50deg 50deg 2m"
+                    zoom-sensitivity="0.2" camera-controls disable-tap min-camera-orbit="auto auto 0m"
+                    max-camera-orbit="auto auto 0m" interaction-prompt="none" shadow-intensity="0" ar
                     disable-shadow ar-modes="webxr scene-viewer quick-look"
-                    style="width: 90%; height: 600px; background: #fff; margin: 0 auto;">
-      </model-viewer>
+                    style="width: 90%; height: 600px; transform: rotateX(180deg); background: #fff; margin: 0 auto;">
+      </model-viewer> -->
     </div>
     <br>
     <div class="content has-text-centered">
       <div class="thumbnail-container" id="thumbnail-qualitative">
         <!-- <img src="resources/qualitative/college.png" data-glb="resources/qualitative/college_v2.glb"> -->
         <!-- <video src="resources/qualitative/pyramid.mp4" data-glb="resources/qualitative/pyramid.glb" loop playsinline muted></video> -->
-        <video src="resources/qualitative/colosseum.mp4" data-glb="resources/qualitative/colosseum_v4.glb" loop playsinline muted></video>
-        <video src="resources/qualitative/outdoor_room.mp4" data-glb="resources/qualitative/outdoor_room_v2.glb" loop playsinline muted></video>
-        <video src="resources/qualitative/courtroom.mp4" data-glb="resources/qualitative/courtroom_v2.glb" loop playsinline muted></video>
-        <img src="resources/qualitative/chess.jpg" data-glb="resources/qualitative/chess_v2.glb">
-        <img src="resources/qualitative/indoor.jpg" data-glb="resources/qualitative/indoor_v2.glb">
+        <video src="resources/qualitative/00534.mp4" data-glb="glb/00534/dense/output.glb" loop playsinline muted></video>
+        <video src="resources/qualitative/00277.mp4" data-glb="glb/00277/dense/output.glb" loop playsinline muted></video>
+        <video src="resources/qualitative/10100-4.mp4" data-glb="glb/10100-4/dense/output.glb" loop playsinline muted></video>
+        <video src="resources/qualitative/00134.mp4" data-glb="glb/00134/dense/output.glb" loop playsinline muted></video>
+        <video src="resources/qualitative/10100-7.mp4" data-glb="glb/10100-7/dense/output.glb" loop playsinline muted></video>
       </div>  
     </div>  
     <style>
